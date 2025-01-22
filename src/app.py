@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from src.gpt_template import chat
 from src.llama_index_template import initialize_index, query_index
 import uvicorn
 
@@ -11,11 +10,8 @@ def query(user_query: str):
     try:
         retrieval_result = query_index(app.llama_index, user_query)
 
-        generated_answer = chat(user_query, retrieval_result)
-
         return {
-            "retrieval_result": retrieval_result.response,
-            "generated_answer": generated_answer
+            "result": retrieval_result.response
         }
 
     except Exception as e:

@@ -1,7 +1,7 @@
 # Rag-template
 
 This template demonstrates a FastAPI server with **Retrieval-Augmented Generation (RAG)**. 
-It integrates **GPT-based chat functionality** with **LlamaIndex** for efficient retrieval of relevant documents, enabling the generation of accurate and context-aware responses based on indexed data.
+It uses **LlamaIndex** for efficient retrieval of relevant documents, enabling the generation of accurate and context-aware responses based on indexed data using the **OpenAI API**.
 
 ## Features
 
