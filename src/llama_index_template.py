@@ -9,8 +9,8 @@ DATA_DIR = "./data"
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-def initialize_index():
-    if not os.path.exists(PERSIST_DIR):
+def initialize_index(force_rebuild=False):
+    if not os.path.exists(PERSIST_DIR) or force_rebuild:
         documents = SimpleDirectoryReader(DATA_DIR).load_data()
         embed_model = OpenAIEmbedding(model=OpenAIEmbeddingModelType.TEXT_EMBED_3_SMALL, api_key=OPENAI_API_KEY)
         index = VectorStoreIndex.from_documents(documents, show_progress=True, embed_model=embed_model)

@@ -21,7 +21,7 @@ def query(user_query: str):
 @app.post('/rebuild_index')
 def rebuild_index():
     try:
-        app.llama_index = initialize_index()
+        app.llama_index = initialize_index(True)
         return {'message': 'The index has been successfully rebuilt'}
     except Exception as e:
         return HTTPException(500, detail=str(e))
